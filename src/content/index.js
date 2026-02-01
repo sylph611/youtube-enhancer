@@ -49,6 +49,7 @@
     if (!video) return;
 
     // 모듈 초기화
+    OSD.init();
     SpeedControl.init(video);
     LoopControl.init(video);
     ScreenshotControl.init(video);
@@ -84,33 +85,44 @@
     switch (key) {
       case shortcuts.speedUp:
         e.preventDefault();
-        ControlsUI.updateSpeedDisplay(SpeedControl.increase());
+        const increasedSpeed = SpeedControl.increase();
+        ControlsUI.updateSpeedDisplay(increasedSpeed);
+        OSD.showSpeed(increasedSpeed);
         break;
 
       case shortcuts.speedDown:
         e.preventDefault();
-        ControlsUI.updateSpeedDisplay(SpeedControl.decrease());
+        const decreasedSpeed = SpeedControl.decrease();
+        ControlsUI.updateSpeedDisplay(decreasedSpeed);
+        OSD.showSpeed(decreasedSpeed);
         break;
 
       case shortcuts.setPointA:
         e.preventDefault();
-        ControlsUI.updateLoopDisplay('a', LoopControl.setPointA());
+        const pointA = LoopControl.setPointA();
+        ControlsUI.updateLoopDisplay('a', pointA);
+        OSD.showPointA(pointA);
         break;
 
       case shortcuts.setPointB:
         e.preventDefault();
-        ControlsUI.updateLoopDisplay('b', LoopControl.setPointB());
+        const pointB = LoopControl.setPointB();
+        ControlsUI.updateLoopDisplay('b', pointB);
+        OSD.showPointB(pointB);
         break;
 
       case shortcuts.toggleLoop:
         e.preventDefault();
-        ControlsUI.updateLoopToggle(LoopControl.toggle());
+        const isLooping = LoopControl.toggle();
+        ControlsUI.updateLoopToggle(isLooping);
+        OSD.showLoop(isLooping);
         break;
 
       case shortcuts.screenshot:
         e.preventDefault();
         ScreenshotControl.download();
         ControlsUI.flashScreenshotButton();
+        OSD.showScreenshot();
         break;
     }
   }

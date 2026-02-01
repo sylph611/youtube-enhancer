@@ -58,24 +58,42 @@ const ControlsUI = {
       if (!action) return;
 
       switch (action) {
-        case 'speed-down':
-          this.updateSpeedDisplay(SpeedControl.decrease());
+        case 'speed-down': {
+          const speed = SpeedControl.decrease();
+          this.updateSpeedDisplay(speed);
+          OSD.showSpeed(speed);
           break;
-        case 'speed-up':
-          this.updateSpeedDisplay(SpeedControl.increase());
+        }
+        case 'speed-up': {
+          const speed = SpeedControl.increase();
+          this.updateSpeedDisplay(speed);
+          OSD.showSpeed(speed);
           break;
-        case 'speed-reset':
-          this.updateSpeedDisplay(SpeedControl.reset());
+        }
+        case 'speed-reset': {
+          const speed = SpeedControl.reset();
+          this.updateSpeedDisplay(speed);
+          OSD.showSpeed(speed);
           break;
-        case 'set-a':
-          this.updateLoopDisplay('a', LoopControl.setPointA());
+        }
+        case 'set-a': {
+          const point = LoopControl.setPointA();
+          this.updateLoopDisplay('a', point);
+          OSD.showPointA(point);
           break;
-        case 'set-b':
-          this.updateLoopDisplay('b', LoopControl.setPointB());
+        }
+        case 'set-b': {
+          const point = LoopControl.setPointB();
+          this.updateLoopDisplay('b', point);
+          OSD.showPointB(point);
           break;
-        case 'toggle-loop':
-          this.updateLoopToggle(LoopControl.toggle());
+        }
+        case 'toggle-loop': {
+          const isLooping = LoopControl.toggle();
+          this.updateLoopToggle(isLooping);
+          OSD.showLoop(isLooping);
           break;
+        }
         case 'reset-loop':
           LoopControl.reset();
           this.resetLoopDisplay();
@@ -83,6 +101,7 @@ const ControlsUI = {
         case 'screenshot':
           ScreenshotControl.download();
           this.flashScreenshotButton();
+          OSD.showScreenshot();
           break;
       }
     });

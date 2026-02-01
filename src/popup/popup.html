@@ -109,6 +109,24 @@
       color: #555;
       margin-top: 12px;
     }
+
+    .settings-btn {
+      width: 100%;
+      background: #2a2a2a;
+      border: 1px solid #444;
+      color: #ccc;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .settings-btn:hover {
+      background: #3a3a3a;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -116,32 +134,33 @@
 
   <div class="section">
     <div class="section-title">단축키</div>
-    <div class="shortcut-list">
+    <div class="shortcut-list" id="shortcutList">
       <div class="shortcut-item">
         <span>속도 감소</span>
-        <span class="shortcut-key">[</span>
+        <span class="shortcut-key" data-action="speedDown">[</span>
       </div>
       <div class="shortcut-item">
         <span>속도 증가</span>
-        <span class="shortcut-key">]</span>
+        <span class="shortcut-key" data-action="speedUp">]</span>
       </div>
       <div class="shortcut-item">
         <span>구간 시작 (A)</span>
-        <span class="shortcut-key">A</span>
+        <span class="shortcut-key" data-action="setPointA">A</span>
       </div>
       <div class="shortcut-item">
         <span>구간 끝 (B)</span>
-        <span class="shortcut-key">B</span>
+        <span class="shortcut-key" data-action="setPointB">B</span>
       </div>
       <div class="shortcut-item">
         <span>반복 토글</span>
-        <span class="shortcut-key">\</span>
+        <span class="shortcut-key" data-action="toggleLoop">\</span>
       </div>
       <div class="shortcut-item">
         <span>스크린샷</span>
-        <span class="shortcut-key">S</span>
+        <span class="shortcut-key" data-action="screenshot">S</span>
       </div>
     </div>
+    <button class="settings-btn" id="openSettings">⚙️ 단축키 설정</button>
   </div>
 
   <div class="divider"></div>

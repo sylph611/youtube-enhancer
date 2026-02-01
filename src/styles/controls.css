@@ -154,6 +154,45 @@
   100% { background: #2a2a2a; }
 }
 
+/* OSD (On-Screen Display) */
+#yt-enhancer-osd {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  text-align: center;
+  min-width: 120px;
+}
+
+#yt-enhancer-osd.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#yt-enhancer-osd.yt-enhancer-osd-speed .yt-enhancer-osd-content {
+  color: #ff4444;
+}
+
+#yt-enhancer-osd.yt-enhancer-osd-loop .yt-enhancer-osd-content {
+  color: #44aaff;
+  font-size: 20px;
+}
+
+#yt-enhancer-osd.yt-enhancer-osd-screenshot .yt-enhancer-osd-content {
+  color: #44ff44;
+  font-size: 18px;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   #yt-enhancer-panel {
