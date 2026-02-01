@@ -6,6 +6,7 @@
 const DEFAULT_SHORTCUTS = {
   speedUp: ']',
   speedDown: '[',
+  speedReset: 'z',
   setPointA: 'a',
   setPointB: 'b',
   toggleLoop: '\\',
@@ -143,6 +144,7 @@ function getActionName(action) {
   const names = {
     speedUp: '속도 증가',
     speedDown: '속도 감소',
+    speedReset: '1배속으로',
     setPointA: '구간 시작점',
     setPointB: '구간 끝점',
     toggleLoop: '반복 토글',

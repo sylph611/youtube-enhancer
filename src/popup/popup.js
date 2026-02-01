@@ -5,6 +5,7 @@
 const DEFAULT_SHORTCUTS = {
   speedUp: ']',
   speedDown: '[',
+  speedReset: 'z',
   setPointA: 'a',
   setPointB: 'b',
   toggleLoop: '\\',

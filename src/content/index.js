@@ -13,6 +13,7 @@
   const DEFAULT_SHORTCUTS = {
     speedUp: ']',
     speedDown: '[',
+    speedReset: 'z',
     setPointA: 'a',
     setPointB: 'b',
     toggleLoop: '\\',
@@ -95,6 +96,13 @@
         const decreasedSpeed = SpeedControl.decrease();
         ControlsUI.updateSpeedDisplay(decreasedSpeed);
         OSD.showSpeed(decreasedSpeed);
+        break;
+
+      case shortcuts.speedReset:
+        e.preventDefault();
+        const resetSpeed = SpeedControl.reset();
+        ControlsUI.updateSpeedDisplay(resetSpeed);
+        OSD.showSpeed(resetSpeed);
         break;
 
       case shortcuts.setPointA:
