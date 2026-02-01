@@ -1,0 +1,160 @@
+{
+  "extName": {
+    "message": "YouTube Enhancer",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Fine-grained speed control, A-B loop, and screenshot features for YouTube.",
+    "description": "Extension description"
+  },
+  "panelTitle": {
+    "message": "YT Enhancer",
+    "description": "Control panel title"
+  },
+  "speed": {
+    "message": "Speed",
+    "description": "Speed label"
+  },
+  "loop": {
+    "message": "Loop",
+    "description": "Loop label"
+  },
+  "loopOn": {
+    "message": "Looping",
+    "description": "Loop on state"
+  },
+  "loopOff": {
+    "message": "Loop",
+    "description": "Loop off state"
+  },
+  "screenshot": {
+    "message": "Screenshot",
+    "description": "Screenshot button"
+  },
+  "minimize": {
+    "message": "Minimize",
+    "description": "Minimize button"
+  },
+  "shortcuts": {
+    "message": "Shortcuts",
+    "description": "Shortcuts section"
+  },
+  "shortcutSettings": {
+    "message": "Shortcut Settings",
+    "description": "Settings button"
+  },
+  "speedDown": {
+    "message": "Slow down",
+    "description": "Speed down shortcut"
+  },
+  "speedUp": {
+    "message": "Speed up",
+    "description": "Speed up shortcut"
+  },
+  "speedReset": {
+    "message": "Reset to 1x",
+    "description": "Reset speed shortcut"
+  },
+  "setPointA": {
+    "message": "Set point A",
+    "description": "Set A point"
+  },
+  "setPointB": {
+    "message": "Set point B",
+    "description": "Set B point"
+  },
+  "toggleLoop": {
+    "message": "Toggle loop",
+    "description": "Toggle loop shortcut"
+  },
+  "supportText": {
+    "message": "If you find this useful ☕",
+    "description": "Support text"
+  },
+  "settingsTitle": {
+    "message": "Customize shortcuts and settings",
+    "description": "Settings page subtitle"
+  },
+  "shortcutSettingsTitle": {
+    "message": "Keyboard Shortcuts",
+    "description": "Settings page section title"
+  },
+  "shortcutInstructions": {
+    "message": "Click an input field and press your desired key. Avoid conflicts with YouTube's default shortcuts.",
+    "description": "Shortcut settings instructions"
+  },
+  "speedDownDesc": {
+    "message": "Decrease playback speed by 0.1x",
+    "description": "Speed down description"
+  },
+  "speedUpDesc": {
+    "message": "Increase playback speed by 0.1x",
+    "description": "Speed up description"
+  },
+  "speedResetDesc": {
+    "message": "Reset playback speed to 1.0x",
+    "description": "Speed reset description"
+  },
+  "setPointADesc": {
+    "message": "Set the start point for loop",
+    "description": "Set A point description"
+  },
+  "setPointBDesc": {
+    "message": "Set the end point for loop",
+    "description": "Set B point description"
+  },
+  "toggleLoopDesc": {
+    "message": "Turn loop on or off",
+    "description": "Toggle loop description"
+  },
+  "screenshotDesc": {
+    "message": "Capture current frame",
+    "description": "Screenshot description"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save button"
+  },
+  "resetDefaults": {
+    "message": "Reset to defaults",
+    "description": "Reset button"
+  },
+  "settingsSaved": {
+    "message": "Settings saved",
+    "description": "Save complete message"
+  },
+  "settingsReset": {
+    "message": "Reset to defaults",
+    "description": "Reset complete message"
+  },
+  "pressKey": {
+    "message": "Press a key...",
+    "description": "Key input waiting message"
+  },
+  "keyInUse": {
+    "message": "This key is already used by \"$ACTION$\"",
+    "description": "Duplicate key warning",
+    "placeholders": {
+      "action": {
+        "content": "$1",
+        "example": "Speed up"
+      }
+    }
+  },
+  "settingsNote": {
+    "message": "Changes will apply after refreshing YouTube.",
+    "description": "Settings note"
+  },
+  "osdLoopOn": {
+    "message": "🔁 Loop ON",
+    "description": "OSD loop on"
+  },
+  "osdLoopOff": {
+    "message": "Loop OFF",
+    "description": "OSD loop off"
+  },
+  "osdScreenshot": {
+    "message": "📷 Screenshot saved",
+    "description": "OSD screenshot"
+  }
+}

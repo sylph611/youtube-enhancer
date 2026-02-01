@@ -12,6 +12,17 @@ const DEFAULT_SHORTCUTS = {
   screenshot: 's'
 };
 
+// i18n 적용
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const message = chrome.i18n.getMessage(key);
+    if (message) {
+      el.textContent = message;
+    }
+  });
+}
+
 // 키 표시명 변환
 function getKeyDisplayName(key) {
   const keyNames = {
@@ -41,6 +52,9 @@ function updateShortcutDisplay(shortcuts) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // i18n 적용
+  applyI18n();
+
   // 버전 표시
   const manifest = chrome.runtime.getManifest();
   const versionEl = document.querySelector('.version');

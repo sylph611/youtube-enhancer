@@ -10,34 +10,37 @@ const ControlsUI = {
   create() {
     if (this.panel) return this.panel;
 
+    // i18n 헬퍼
+    const msg = (key, fallback) => chrome.i18n.getMessage(key) || fallback;
+
     this.panel = document.createElement('div');
     this.panel.id = 'yt-enhancer-panel';
     this.panel.innerHTML = `
       <div class="yt-enhancer-header">
-        <span class="yt-enhancer-title">YT Enhancer</span>
-        <button class="yt-enhancer-minimize" title="최소화">−</button>
+        <span class="yt-enhancer-title">${msg('panelTitle', 'YT Enhancer')}</span>
+        <button class="yt-enhancer-minimize" title="${msg('minimize', '최소화')}">−</button>
       </div>
       <div class="yt-enhancer-content">
         <div class="yt-enhancer-section">
-          <div class="yt-enhancer-label">속도</div>
+          <div class="yt-enhancer-label">${msg('speed', '속도')}</div>
           <div class="yt-enhancer-speed-controls">
-            <button class="yt-enhancer-btn" data-action="speed-down" title="속도 감소 ([)">◀</button>
+            <button class="yt-enhancer-btn" data-action="speed-down" title="${msg('speedDown', '속도 감소')} ([)">◀</button>
             <span class="yt-enhancer-speed-value">1.0x</span>
-            <button class="yt-enhancer-btn" data-action="speed-up" title="속도 증가 (])">▶</button>
-            <button class="yt-enhancer-btn yt-enhancer-btn-small" data-action="speed-reset" title="1.0x로 리셋">↺</button>
+            <button class="yt-enhancer-btn" data-action="speed-up" title="${msg('speedUp', '속도 증가')} (])">▶</button>
+            <button class="yt-enhancer-btn yt-enhancer-btn-small" data-action="speed-reset" title="${msg('speedReset', '1배속으로')}">↺</button>
           </div>
         </div>
         <div class="yt-enhancer-section">
-          <div class="yt-enhancer-label">구간 반복</div>
+          <div class="yt-enhancer-label">${msg('loop', '구간 반복')}</div>
           <div class="yt-enhancer-loop-controls">
-            <button class="yt-enhancer-btn" data-action="set-a" title="시작점 설정 (A)">A: --:--</button>
-            <button class="yt-enhancer-btn" data-action="set-b" title="끝점 설정 (B)">B: --:--</button>
-            <button class="yt-enhancer-btn yt-enhancer-btn-toggle" data-action="toggle-loop" title="반복 토글 (\\)">반복</button>
-            <button class="yt-enhancer-btn yt-enhancer-btn-small" data-action="reset-loop" title="구간 초기화">✕</button>
+            <button class="yt-enhancer-btn" data-action="set-a" title="${msg('setPointA', '구간 시작')} (A)">A: --:--</button>
+            <button class="yt-enhancer-btn" data-action="set-b" title="${msg('setPointB', '구간 끝')} (B)">B: --:--</button>
+            <button class="yt-enhancer-btn yt-enhancer-btn-toggle" data-action="toggle-loop" title="${msg('toggleLoop', '반복 토글')} (\\)">${msg('loopOff', '반복')}</button>
+            <button class="yt-enhancer-btn yt-enhancer-btn-small" data-action="reset-loop" title="Reset">✕</button>
           </div>
         </div>
         <div class="yt-enhancer-section">
-          <button class="yt-enhancer-btn yt-enhancer-btn-full" data-action="screenshot" title="스크린샷 (S)">📷 스크린샷</button>
+          <button class="yt-enhancer-btn yt-enhancer-btn-full" data-action="screenshot" title="${msg('screenshot', '스크린샷')} (S)">📷 ${msg('screenshot', '스크린샷')}</button>
         </div>
       </div>
     `;
@@ -132,7 +135,9 @@ const ControlsUI = {
     const btn = this.panel.querySelector('[data-action="toggle-loop"]');
     if (btn) {
       btn.classList.toggle('active', isLooping);
-      btn.textContent = isLooping ? '반복 중' : '반복';
+      const msgOn = chrome.i18n.getMessage('loopOn') || '반복 중';
+      const msgOff = chrome.i18n.getMessage('loopOff') || '반복';
+      btn.textContent = isLooping ? msgOn : msgOff;
     }
   },
 
@@ -150,7 +155,8 @@ const ControlsUI = {
       btnB.classList.remove('active');
     }
     if (btnToggle) {
-      btnToggle.textContent = '반복';
+      const msgOff = chrome.i18n.getMessage('loopOff') || '반복';
+      btnToggle.textContent = msgOff;
       btnToggle.classList.remove('active');
     }
   },

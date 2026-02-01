@@ -1,0 +1,160 @@
+{
+  "extName": {
+    "message": "YouTube Enhancer",
+    "description": "확장 프로그램 이름"
+  },
+  "extDescription": {
+    "message": "YouTube 영상 속도 세분화, 구간 반복, 스크린샷 기능을 제공합니다.",
+    "description": "확장 프로그램 설명"
+  },
+  "panelTitle": {
+    "message": "YT Enhancer",
+    "description": "컨트롤 패널 제목"
+  },
+  "speed": {
+    "message": "속도",
+    "description": "속도 라벨"
+  },
+  "loop": {
+    "message": "구간 반복",
+    "description": "구간 반복 라벨"
+  },
+  "loopOn": {
+    "message": "반복 중",
+    "description": "반복 켜짐 상태"
+  },
+  "loopOff": {
+    "message": "반복",
+    "description": "반복 꺼짐 상태"
+  },
+  "screenshot": {
+    "message": "스크린샷",
+    "description": "스크린샷 버튼"
+  },
+  "minimize": {
+    "message": "최소화",
+    "description": "최소화 버튼"
+  },
+  "shortcuts": {
+    "message": "단축키",
+    "description": "단축키 섹션"
+  },
+  "shortcutSettings": {
+    "message": "단축키 설정",
+    "description": "설정 버튼"
+  },
+  "speedDown": {
+    "message": "속도 감소",
+    "description": "속도 감소 단축키"
+  },
+  "speedUp": {
+    "message": "속도 증가",
+    "description": "속도 증가 단축키"
+  },
+  "speedReset": {
+    "message": "1배속으로",
+    "description": "1배속 리셋 단축키"
+  },
+  "setPointA": {
+    "message": "구간 시작 (A)",
+    "description": "A 포인트 설정"
+  },
+  "setPointB": {
+    "message": "구간 끝 (B)",
+    "description": "B 포인트 설정"
+  },
+  "toggleLoop": {
+    "message": "반복 토글",
+    "description": "반복 토글 단축키"
+  },
+  "supportText": {
+    "message": "도움이 되셨다면 커피 한 잔 ☕",
+    "description": "후원 텍스트"
+  },
+  "settingsTitle": {
+    "message": "단축키 및 설정을 변경합니다",
+    "description": "설정 페이지 부제목"
+  },
+  "shortcutSettingsTitle": {
+    "message": "단축키 설정",
+    "description": "설정 페이지 섹션 제목"
+  },
+  "shortcutInstructions": {
+    "message": "입력 칸을 클릭한 후 원하는 키를 누르세요. YouTube 기본 단축키와 충돌하지 않도록 주의하세요.",
+    "description": "단축키 설정 안내"
+  },
+  "speedDownDesc": {
+    "message": "재생 속도를 0.1x 줄입니다",
+    "description": "속도 감소 설명"
+  },
+  "speedUpDesc": {
+    "message": "재생 속도를 0.1x 높입니다",
+    "description": "속도 증가 설명"
+  },
+  "speedResetDesc": {
+    "message": "재생 속도를 1.0x로 되돌립니다",
+    "description": "1배속 리셋 설명"
+  },
+  "setPointADesc": {
+    "message": "반복 구간의 시작 위치를 설정합니다",
+    "description": "A 포인트 설명"
+  },
+  "setPointBDesc": {
+    "message": "반복 구간의 끝 위치를 설정합니다",
+    "description": "B 포인트 설명"
+  },
+  "toggleLoopDesc": {
+    "message": "구간 반복을 켜거나 끕니다",
+    "description": "반복 토글 설명"
+  },
+  "screenshotDesc": {
+    "message": "현재 화면을 캡처합니다",
+    "description": "스크린샷 설명"
+  },
+  "save": {
+    "message": "저장",
+    "description": "저장 버튼"
+  },
+  "resetDefaults": {
+    "message": "기본값으로 초기화",
+    "description": "초기화 버튼"
+  },
+  "settingsSaved": {
+    "message": "설정이 저장되었습니다",
+    "description": "저장 완료 메시지"
+  },
+  "settingsReset": {
+    "message": "기본값으로 초기화되었습니다",
+    "description": "초기화 완료 메시지"
+  },
+  "pressKey": {
+    "message": "키를 누르세요...",
+    "description": "키 입력 대기 메시지"
+  },
+  "keyInUse": {
+    "message": "이 키는 \"$ACTION$\"에서 사용 중입니다",
+    "description": "중복 키 경고",
+    "placeholders": {
+      "action": {
+        "content": "$1",
+        "example": "속도 증가"
+      }
+    }
+  },
+  "settingsNote": {
+    "message": "변경사항은 저장 후 YouTube 페이지를 새로고침하면 적용됩니다.",
+    "description": "설정 안내"
+  },
+  "osdLoopOn": {
+    "message": "🔁 구간 반복 ON",
+    "description": "OSD 반복 켜짐"
+  },
+  "osdLoopOff": {
+    "message": "구간 반복 OFF",
+    "description": "OSD 반복 꺼짐"
+  },
+  "osdScreenshot": {
+    "message": "📷 스크린샷 저장됨",
+    "description": "OSD 스크린샷"
+  }
+}

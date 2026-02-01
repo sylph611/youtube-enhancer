@@ -48,11 +48,14 @@ const OSD = {
   },
 
   showLoop(isLooping) {
-    this.show(isLooping ? '🔁 구간 반복 ON' : '구간 반복 OFF', 'loop');
+    const msgOn = chrome.i18n.getMessage('osdLoopOn') || '🔁 구간 반복 ON';
+    const msgOff = chrome.i18n.getMessage('osdLoopOff') || '구간 반복 OFF';
+    this.show(isLooping ? msgOn : msgOff, 'loop');
   },
 
   showScreenshot() {
-    this.show('📷 스크린샷 저장됨', 'screenshot');
+    const msg = chrome.i18n.getMessage('osdScreenshot') || '📷 스크린샷 저장됨';
+    this.show(msg, 'screenshot');
   },
 
   showPointA(time) {

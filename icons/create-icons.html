@@ -1,56 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <title>Icon Generator</title>
+  <meta charset="UTF-8">
+  <title>YouTube Enhancer 아이콘 생성기</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff4444;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #888;
+      margin-bottom: 40px;
+    }
+    .icons-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .icon-box {
+      background: #2a2a2a;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .icon-box p {
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    canvas {
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .download-btn {
+      background: #ff4444;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #ff5555;
+    }
+    .download-all {
+      background: #4444ff;
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+    .preview {
+      margin-top: 40px;
+      padding: 24px;
+      background: #2a2a2a;
+      border-radius: 12px;
+    }
+    .preview h2 {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .preview-row span {
+      color: #888;
+      font-size: 14px;
+    }
+    .checkerboard {
+      background-image:
+        linear-gradient(45deg, #333 25%, transparent 25%),
+        linear-gradient(-45deg, #333 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #333 75%),
+        linear-gradient(-45deg, transparent 75%, #333 75%);
+      background-size: 10px 10px;
+      background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-  <h2>YouTube Enhancer Icons</h2>
-  <p>각 캔버스를 우클릭하여 이미지로 저장하세요.</p>
-  <div style="display: flex; gap: 20px; align-items: end;">
-    <div>
-      <p>16x16</p>
+  <h1>▶ YouTube Enhancer</h1>
+  <p class="subtitle">아이콘 생성기 - 각 버튼을 클릭하여 아이콘을 다운로드하세요</p>
+
+  <div class="icons-container">
+    <div class="icon-box">
+      <p>16 × 16</p>
       <canvas id="icon16" width="16" height="16"></canvas>
+      <br>
+      <button class="download-btn" onclick="download('icon16', 16)">다운로드</button>
     </div>
-    <div>
-      <p>48x48</p>
+    <div class="icon-box">
+      <p>48 × 48</p>
       <canvas id="icon48" width="48" height="48"></canvas>
+      <br>
+      <button class="download-btn" onclick="download('icon48', 48)">다운로드</button>
     </div>
-    <div>
-      <p>128x128</p>
+    <div class="icon-box">
+      <p>128 × 128</p>
       <canvas id="icon128" width="128" height="128"></canvas>
+      <br>
+      <button class="download-btn" onclick="download('icon128', 128)">다운로드</button>
     </div>
   </div>
+
+  <button class="download-btn download-all" onclick="downloadAll()">📦 모두 다운로드</button>
+
+  <div class="preview">
+    <h2>미리보기</h2>
+    <div class="preview-row">
+      <span>툴바:</span>
+      <div class="checkerboard"><canvas id="preview16" width="16" height="16"></canvas></div>
+    </div>
+    <div class="preview-row">
+      <span>확장 관리:</span>
+      <div class="checkerboard"><canvas id="preview48" width="48" height="48"></canvas></div>
+    </div>
+    <div class="preview-row">
+      <span>웹스토어:</span>
+      <div class="checkerboard"><canvas id="preview128" width="128" height="128"></canvas></div>
+    </div>
+  </div>
+
   <script>
     function drawIcon(canvas) {
       const ctx = canvas.getContext('2d');
       const size = canvas.width;
-      const padding = size * 0.1;
-      
-      // Background
-      ctx.fillStyle = '#ff4444';
+
+      // Clear
+      ctx.clearRect(0, 0, size, size);
+
+      // Background with gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#ff5555');
+      gradient.addColorStop(1, '#cc2222');
+
+      // Rounded rectangle background
+      const radius = size * 0.2;
       ctx.beginPath();
-      ctx.roundRect(0, 0, size, size, size * 0.15);
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
       ctx.fill();
-      
+
+      // Shadow for play button
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = size * 0.05;
+      ctx.shadowOffsetX = size * 0.02;
+      ctx.shadowOffsetY = size * 0.02;
+
       // Play triangle
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
-      const x1 = size * 0.35;
-      const y1 = size * 0.25;
-      const x2 = size * 0.35;
-      const y2 = size * 0.75;
-      const x3 = size * 0.75;
-      const y3 = size * 0.5;
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.lineTo(x3, y3);
+      const playLeft = size * 0.35;
+      const playRight = size * 0.75;
+      const playTop = size * 0.22;
+      const playBottom = size * 0.78;
+      const playCenter = size * 0.5;
+
+      ctx.moveTo(playLeft, playTop);
+      ctx.lineTo(playLeft, playBottom);
+      ctx.lineTo(playRight, playCenter);
       ctx.closePath();
       ctx.fill();
+
+      // Reset shadow
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+
+      // Speed indicator lines (for larger icons)
+      if (size >= 48) {
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.lineWidth = Math.max(1, size * 0.025);
+        ctx.lineCap = 'round';
+
+        // Small lines indicating speed/enhancement
+        const lineLength = size * 0.08;
+        const lineOffset = size * 0.15;
+
+        // Top right area
+        ctx.beginPath();
+        ctx.moveTo(size - lineOffset, lineOffset);
+        ctx.lineTo(size - lineOffset - lineLength * 0.7, lineOffset + lineLength * 0.7);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(size - lineOffset + lineLength * 0.3, lineOffset + lineLength * 0.5);
+        ctx.lineTo(size - lineOffset - lineLength * 0.4, lineOffset + lineLength * 1.2);
+        ctx.stroke();
+      }
     }
-    
-    drawIcon(document.getElementById('icon16'));
-    drawIcon(document.getElementById('icon48'));
-    drawIcon(document.getElementById('icon128'));
+
+    function download(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = `icon${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function downloadAll() {
+      download('icon16', 16);
+      setTimeout(() => download('icon48', 48), 100);
+      setTimeout(() => download('icon128', 128), 200);
+    }
+
+    // Draw all icons
+    ['icon16', 'icon48', 'icon128', 'preview16', 'preview48', 'preview128'].forEach(id => {
+      drawIcon(document.getElementById(id));
+    });
   </script>
 </body>
 </html>

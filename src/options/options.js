@@ -16,6 +16,22 @@ const DEFAULT_SHORTCUTS = {
 let currentShortcuts = { ...DEFAULT_SHORTCUTS };
 let recordingInput = null;
 
+// i18n 헬퍼
+function getMessage(key, substitutions) {
+  return chrome.i18n.getMessage(key, substitutions) || key;
+}
+
+// i18n 적용
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const message = getMessage(key);
+    if (message) {
+      el.textContent = message;
+    }
+  });
+}
+
 // 키 표시명 변환
 function getKeyDisplayName(key) {
   const keyNames = {
@@ -62,7 +78,7 @@ function updateInputs() {
 // 설정 저장
 function saveSettings() {
   chrome.storage.sync.set({ shortcuts: currentShortcuts }, () => {
-    showToast('설정이 저장되었습니다', 'success');
+    showToast(getMessage('settingsSaved'), 'success');
   });
 }
 
@@ -70,7 +86,7 @@ function saveSettings() {
 function resetToDefaults() {
   currentShortcuts = { ...DEFAULT_SHORTCUTS };
   updateInputs();
-  showToast('기본값으로 초기화되었습니다');
+  showToast(getMessage('settingsReset'));
 }
 
 // 토스트 메시지
@@ -91,7 +107,7 @@ function startRecording(input) {
   }
   recordingInput = input;
   recordingInput.classList.add('recording');
-  recordingInput.value = '키를 누르세요...';
+  recordingInput.value = getMessage('pressKey');
 }
 
 // 키 녹화 중지
@@ -130,7 +146,8 @@ function handleKeyDown(e) {
   );
 
   if (duplicateAction) {
-    showToast(`이 키는 "${getActionName(duplicateAction[0])}"에서 사용 중입니다`);
+    const actionName = getMessage(duplicateAction[0]);
+    showToast(getMessage('keyInUse', [actionName]));
     return;
   }
 
@@ -139,22 +156,9 @@ function handleKeyDown(e) {
   stopRecording();
 }
 
-// 액션 이름
-function getActionName(action) {
-  const names = {
-    speedUp: '속도 증가',
-    speedDown: '속도 감소',
-    speedReset: '1배속으로',
-    setPointA: '구간 시작점',
-    setPointB: '구간 끝점',
-    toggleLoop: '반복 토글',
-    screenshot: '스크린샷'
-  };
-  return names[action] || action;
-}
-
 // 초기화
 document.addEventListener('DOMContentLoaded', () => {
+  applyI18n();
   loadSettings();
 
   // 입력 필드 클릭 이벤트

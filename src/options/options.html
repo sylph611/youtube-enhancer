@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Enhancer 설정</title>
+  <title>YouTube Enhancer</title>
   <style>
     * {
       margin: 0;
@@ -190,81 +190,77 @@
 <body>
   <div class="container">
     <h1>YouTube Enhancer</h1>
-    <p class="subtitle">단축키 및 설정을 변경합니다</p>
+    <p class="subtitle" data-i18n="settingsTitle"></p>
 
     <div class="section">
-      <h2 class="section-title">⌨️ 단축키 설정</h2>
-      <p class="info-text" style="margin-top: 0; margin-bottom: 16px;">
-        입력 칸을 클릭한 후 원하는 키를 누르세요. YouTube 기본 단축키와 충돌하지 않도록 주의하세요.
-      </p>
+      <h2 class="section-title">⌨️ <span data-i18n="shortcutSettingsTitle"></span></h2>
+      <p class="info-text" style="margin-top: 0; margin-bottom: 16px;" data-i18n="shortcutInstructions"></p>
 
       <div class="shortcut-list">
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">속도 감소</div>
-            <div class="shortcut-description">재생 속도를 0.1x 줄입니다</div>
+            <div class="shortcut-label" data-i18n="speedDown"></div>
+            <div class="shortcut-description" data-i18n="speedDownDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="speedDown" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">속도 증가</div>
-            <div class="shortcut-description">재생 속도를 0.1x 높입니다</div>
+            <div class="shortcut-label" data-i18n="speedUp"></div>
+            <div class="shortcut-description" data-i18n="speedUpDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="speedUp" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">1배속으로</div>
-            <div class="shortcut-description">재생 속도를 1.0x로 되돌립니다</div>
+            <div class="shortcut-label" data-i18n="speedReset"></div>
+            <div class="shortcut-description" data-i18n="speedResetDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="speedReset" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">구간 시작점 (A)</div>
-            <div class="shortcut-description">반복 구간의 시작 위치를 설정합니다</div>
+            <div class="shortcut-label" data-i18n="setPointA"></div>
+            <div class="shortcut-description" data-i18n="setPointADesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="setPointA" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">구간 끝점 (B)</div>
-            <div class="shortcut-description">반복 구간의 끝 위치를 설정합니다</div>
+            <div class="shortcut-label" data-i18n="setPointB"></div>
+            <div class="shortcut-description" data-i18n="setPointBDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="setPointB" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">반복 토글</div>
-            <div class="shortcut-description">구간 반복을 켜거나 끕니다</div>
+            <div class="shortcut-label" data-i18n="toggleLoop"></div>
+            <div class="shortcut-description" data-i18n="toggleLoopDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="toggleLoop" readonly>
         </div>
 
         <div class="shortcut-item">
           <div>
-            <div class="shortcut-label">스크린샷</div>
-            <div class="shortcut-description">현재 화면을 캡처합니다</div>
+            <div class="shortcut-label" data-i18n="screenshot"></div>
+            <div class="shortcut-description" data-i18n="screenshotDesc"></div>
           </div>
           <input type="text" class="shortcut-input" data-action="screenshot" readonly>
         </div>
       </div>
 
       <div class="button-group">
-        <button class="btn btn-primary" id="saveBtn">저장</button>
-        <button class="btn btn-secondary" id="resetBtn">기본값으로 초기화</button>
+        <button class="btn btn-primary" id="saveBtn" data-i18n="save"></button>
+        <button class="btn btn-secondary" id="resetBtn" data-i18n="resetDefaults"></button>
       </div>
     </div>
 
-    <p class="info-text">
-      💡 변경사항은 저장 후 YouTube 페이지를 새로고침하면 적용됩니다.
-    </p>
+    <p class="info-text">💡 <span data-i18n="settingsNote"></span></p>
   </div>
 
   <div class="toast" id="toast"></div>
