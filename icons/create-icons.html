@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Generator</title>
+</head>
+<body>
+  <h2>YouTube Enhancer Icons</h2>
+  <p>각 캔버스를 우클릭하여 이미지로 저장하세요.</p>
+  <div style="display: flex; gap: 20px; align-items: end;">
+    <div>
+      <p>16x16</p>
+      <canvas id="icon16" width="16" height="16"></canvas>
+    </div>
+    <div>
+      <p>48x48</p>
+      <canvas id="icon48" width="48" height="48"></canvas>
+    </div>
+    <div>
+      <p>128x128</p>
+      <canvas id="icon128" width="128" height="128"></canvas>
+    </div>
+  </div>
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+      const padding = size * 0.1;
+      
+      // Background
+      ctx.fillStyle = '#ff4444';
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size, size * 0.15);
+      ctx.fill();
+      
+      // Play triangle
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      const x1 = size * 0.35;
+      const y1 = size * 0.25;
+      const x2 = size * 0.35;
+      const y2 = size * 0.75;
+      const x3 = size * 0.75;
+      const y3 = size * 0.5;
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(x3, y3);
+      ctx.closePath();
+      ctx.fill();
+    }
+    
+    drawIcon(document.getElementById('icon16'));
+    drawIcon(document.getElementById('icon48'));
+    drawIcon(document.getElementById('icon128'));
+  </script>
+</body>
+</html>

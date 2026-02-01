@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Enhancer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 280px;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ff4444;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h1::before {
+      content: '▶';
+      font-size: 12px;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shortcut-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      background: #2a2a2a;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .shortcut-key {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #ff4444;
+    }
+
+    .divider {
+      height: 1px;
+      background: #333;
+      margin: 16px 0;
+    }
+
+    .support-section {
+      text-align: center;
+    }
+
+    .support-text {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .support-btn {
+      display: inline-block;
+      background: #ffdd00;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .support-btn:hover {
+      background: #ffee55;
+    }
+
+    .version {
+      text-align: center;
+      font-size: 10px;
+      color: #555;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube Enhancer</h1>
+
+  <div class="section">
+    <div class="section-title">단축키</div>
+    <div class="shortcut-list">
+      <div class="shortcut-item">
+        <span>속도 감소</span>
+        <span class="shortcut-key">[</span>
+      </div>
+      <div class="shortcut-item">
+        <span>속도 증가</span>
+        <span class="shortcut-key">]</span>
+      </div>
+      <div class="shortcut-item">
+        <span>구간 시작 (A)</span>
+        <span class="shortcut-key">A</span>
+      </div>
+      <div class="shortcut-item">
+        <span>구간 끝 (B)</span>
+        <span class="shortcut-key">B</span>
+      </div>
+      <div class="shortcut-item">
+        <span>반복 토글</span>
+        <span class="shortcut-key">\</span>
+      </div>
+      <div class="shortcut-item">
+        <span>스크린샷</span>
+        <span class="shortcut-key">S</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="support-section">
+    <div class="support-text">도움이 되셨다면 커피 한 잔 ☕</div>
+    <a href="https://buymeacoffee.com/your-username" target="_blank" class="support-btn">
+      Buy Me a Coffee
+    </a>
+  </div>
+
+  <div class="version">v1.0.0</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

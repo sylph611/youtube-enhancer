@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Enhancer",
+  "version": "1.0.0",
+  "description": "YouTube 영상 속도 세분화, 구간 반복, 스크린샷 기능을 제공합니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": [
+        "src/content/speed.js",
+        "src/content/loop.js",
+        "src/content/screenshot.js",
+        "src/content/controls.js",
+        "src/content/index.js"
+      ],
+      "css": ["src/styles/controls.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
